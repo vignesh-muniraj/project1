@@ -18,7 +18,6 @@ function BoxColor() {
     />
     {/* Task 3.2 - Uses colors - Display Color Box */}
     <button onClick={()=> setColors(colors.concat(color))}>➕ Add</button>
-    <button onClick={()=> setColors()}>delete </button>
 
       {/* Task 3.1 - Uses colors - Display Color Box */}
        {colors.map((clr)=>(
