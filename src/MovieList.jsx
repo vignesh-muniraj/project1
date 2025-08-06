@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Movie } from "./Movie";
 
 export function MovieList() {
+  
   const movieDetails = [
     {
       name: "Vikram",
@@ -91,10 +93,13 @@ export function MovieList() {
     },
   ];
   return (
-    //movieDetails.map(({name,poster,summary,rating}) => <Movie name={name} poster={poster} summary={summary} rating={rating}/>)
-    movieDetails.map((movieDetails) => (
+   
+    <div className="movie-smart">
+    {movieDetails.map((movieDetails) =>(
       <Movie name="N/A" {...movieDetails} />
-      // <Movie {name="N/A",...movieDetails}/>
-    ))
-  );
+      ))
+      }
+      </div>
+);
 }
+//movieDetails.map(({name,poster,summary,rating}) => <Movie name={name} poster={poster} summary={summary} rating={rating}/>)

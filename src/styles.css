@@ -5,16 +5,27 @@
   display: grid;
   place-content: center;
 } */
+ .nav-bar{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+ }
 .App {
     font-family: sans-serif;
     /* text-align: center; */
-    max-width: 1400px;
+
+}
+.home-container{
+  display: grid;
+  place-content: center;
+}
+.movie-smart{
+   max-width: 1400px;
     margin: 0 auto;
     place-content: center; 
-  /* display: flex;
+  display: flex;
   flex-wrap: wrap;
-  gap: 60px; */
-  display: grid;
   gap: 60px;
 }
 /* @media (max-width: 200px) { */
@@ -25,13 +36,12 @@
   display: grid;
   place-content: center;
 }
-  .App{
-  display: grid;
-  grid-template-columns: 1fr;
-  }
+  
 }
 .movie-container{
     width: 280px;
+    display: flex;
+    flex-wrap: wrap;
     img{
       width: 100%;
       height: 500px;
@@ -68,9 +78,19 @@
   }
 }
 
+.user-container{
+  display: grid;
+  place-content: center;
+  gap: 10px;
+}
+.colorGame-container{
+   display: grid;
+  place-content: center;
+  gap: 10px;
+}
   .Movie-like-btn{
-    display: flex;
+    /* display: flex;
     align-content: start;
     gap: 10px;
-    padding: 5px;
+    padding: 5px; */
   }

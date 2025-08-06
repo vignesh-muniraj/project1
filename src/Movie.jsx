@@ -6,27 +6,30 @@ export function Movie({ name = "unknown", poster, summary, rating }) {
   // conditional styleing
   const ratingStyle = {
     color: rating > 8.5 ? "green" : "red",
-  }
+  };
   // style Rendering
-  const toggleStyle ={
-      display:show  ? "block" : "none",
-  }
-  
+  const toggleStyle = {
+    display: show ? "block" : "none",
+  };
+
   return (
     <div className="movie-container">
-      <img src={poster} alt="" />
-      <div className="title-container">
-        <h1>{name}</h1>
-        <h2 style={ratingStyle}>{rating}</h2>
+      <div>
+        <img src={poster} alt="" />
+        <div className="title-container">
+          <h1>{name}</h1>
+          <h2 style={ratingStyle}>{rating}</h2>
         </div>
         <button onClick={() => setShow(show ? false : true)}>Toggle</button>
-        <p style={toggleStyle}>{summary}</p>
-         { show && <p>{summary}</p>}
-        
+        {show && <p>{summary}</p>}
         <MovieLikes />
-        </div>
-      );
-    }
-    
-    // <h2 style={{color: rating > 8.5 ? "green" : "red"}}>{rating}</h2>
-  {/* <button onClick={() => setShow(!show)}>Toggle</button> */}
+      </div>
+    </div>
+  );
+}
+
+// <p style={toggleStyle}>{summary}</p>
+// <h2 style={{color: rating > 8.5 ? "green" : "red"}}>{rating}</h2>
+{
+  /* <button onClick={() => setShow(!show)}>Toggle</button> */
+}
