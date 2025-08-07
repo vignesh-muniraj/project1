@@ -17,6 +17,15 @@
 - 2.Default Export
 
 
+
+## Git
+- git add (file-name)
+- git commit -m ("name") 
+- git log
+- git log -oneline
+- git log -1
+- git push
+
 # :repeat(auto-fix,minmax(380px, 1fr))
 
 ```js
