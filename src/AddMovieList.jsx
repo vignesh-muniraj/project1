@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { AddMovie } from "./AddMovie";
+import { useParams } from "react-router";
 
 export function AddMovieList() {
   const defaultMovies = [
