@@ -25,6 +25,8 @@
 - git log -oneline
 - git log -1
 - git push.
+- git status
+- 
 
 
 # :repeat(auto-fix,minmax(380px, 1fr))
