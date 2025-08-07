@@ -103,3 +103,4 @@ export function MovieList() {
 );
 }
 //movieDetails.map(({name,poster,summary,rating}) => <Movie name={name} poster={poster} summary={summary} rating={rating}/>)
+//movieDetails.map((movie) => <Movie name={movie.name} poster={movie.poster} summary={movie.summary} rating={movie.rating}/>)

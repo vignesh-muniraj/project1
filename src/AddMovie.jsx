@@ -1,35 +1,25 @@
 import { useState } from "react";
-import { MovieLikes } from "./MovieLikes";
+import { MovieLikes } from "./MovieLikes"; // If you have a like component
 
-export function AddMovie({ name = "unknown", poster, summary, rating }) {
-  const [show, setShow] = useState(true);
-  // conditional styleing
+export function AddMovie({ name, poster, rating, summary }) {
+  const [show, setShow] = useState(false);
+
   const ratingStyle = {
-    color: rating > 8.5 ? "green" : "red",
-  };
-  // style Rendering
-  const toggleStyle = {
-    display: show ? "block" : "none",
+    color: rating >= 8 ? "green" : "crimson",
   };
 
   return (
     <div className="movie-container">
       <div>
-        <img src={poster} alt="" />
+        <img src={poster} alt={name} />
         <div className="title-container">
           <h1>{name}</h1>
           <h2 style={ratingStyle}>{rating}</h2>
         </div>
-        <button onClick={() => setShow(show ? false : true)}>Toggle</button>
+        <button onClick={() => setShow(!show)}>Toggle</button>
         {show && <p>{summary}</p>}
         <MovieLikes />
       </div>
     </div>
   );
-}
-
-// <p style={toggleStyle}>{summary}</p>
-// <h2 style={{color: rating > 8.5 ? "green" : "red"}}>{rating}</h2>
-{
-  /* <button onClick={() => setShow(!show)}>Toggle</button> */
 }
