@@ -41,7 +41,6 @@ export function AddMovieList() {
     // setMovieList([...movieList, newMovie]);
     setMovieList(movieList.concat(newMovie));
   }
-
   return (
     <div>
       <div className="movie-form">
