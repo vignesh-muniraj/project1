@@ -10,6 +10,7 @@ export function AddMovieList({movieList,setMovieList}) {
   const [url, setUrl] = useState("");
   const [rating, setRating] = useState("");
   const [summary, setSummary] = useState("");
+  const [trailer, settrailer] = useState("");
 
   function addNewMovies() {
     const newMovie = {
@@ -17,6 +18,7 @@ export function AddMovieList({movieList,setMovieList}) {
       poster: url,
       rating: rating,
       summary: summary,
+      trailer:trailer,
     };
    
     // setMovieList([...movieList, newMovie]);
@@ -26,10 +28,11 @@ export function AddMovieList({movieList,setMovieList}) {
     setUrl("");
     setRating("");
     setSummary("");
+    settrailer("");
   }
   return (
     <div>
-      <div className="movie-form">
+      <div className="add-movie-form">
       
         <input
           value={name}
@@ -54,17 +57,21 @@ export function AddMovieList({movieList,setMovieList}) {
           onChange={(event) => setSummary(event.target.value)}
           placeholder="Enter Summary"
         />
+        <input
+          value={trailer}
+          onChange={(event) => settrailer(event.target.value)}
+          type="text"
+          placeholder="Enter trailer"
+        />
         <button onClick={addNewMovies}>ADD </button>
       </div>
 
       <div className="movie-smart">
-        {movieList.map((movie) => (
+        {movieList.map((movie,index) => (
           <AddMovie
-            // name={movie.name}
-            // poster={movie.poster}
-            // rating={movie.rating}
-            // summary={movie.summary}
-            {...movie}
+            key={index}
+            id={index}
+            movie={movie}
           />
         ))}
       </div>

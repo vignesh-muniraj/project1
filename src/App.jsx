@@ -17,41 +17,57 @@ export default function App() {
   return (
     <div className="App">
       <nav className="nav-bar">
-        <Link to="/Home">Home</Link> |<Link to="/UserList">UserList</Link> |
-        <Link to="/AddMovieList">AddMovieList</Link> |
-        <Link to="/ColorGame">ColorGame</Link> |
+        <Link to="/home">Home</Link>
+        <Link to="/userList">UserList</Link>
+        <Link to="/movieslist">MovieList</Link>
+        <Link to="/colorgame">ColorGame</Link>
       </nav>
       <Routes>
-        <Route path="Home" element={<Home />} />
-        <Route path="UserList" element={<UserList />} />
+        <Route path="home" element={<Home />} />
+        <Route path="userList" element={<UserList />} />
+        <Route
+          path="movieslist"
+          element={
+            <AddMovieList movieList={movieList} setMovieList={setMovieList} />
+          }
+        />
         <Route
           path="movies/:id"
           element={
-            <MovieDetails movieList1 ={movieList} setMovieList={setMovieList} />
+            <MovieDetails movieList={movieList} setMovieList={setMovieList} />
           }
         />
         {/*<Route path="movies" element={<MovieDetails />} />}   {/*id*/}
         <Route path="films" element={<Navigate to="/AddMovieList" replace />} />
-        <Route path="ColorGame" element={<ColorGame />} />
+        <Route path="colorgame" element={<ColorGame />} />
         <Route path="/" element={<Home />} />
       </Routes>
     </div>
   );
 }
-function MovieDetails({ movieList1 }) {
+function MovieDetails({ movieList }) {
   const { id } = useParams();
-  console.log(movieList1.name);
+  console.log(movieList);
+  const movie = movieList[id];
   return (
-   
-    <div className="movie-container">
-      <div>
-        <img src={movieList1[id].poster} alt={movieList1[id].name} />
-        <div className="title-container">
-          <h1>{movieList1[id].name}</h1>
-          <h2>{movieList1[id].rating}</h2>
+    <div className="movie-detail-container">
+      <iframe
+        width="100%"
+        height="750"
+        src={movie.trailer}
+        title="AVENGERS: DOOMSDAY (2026) – FIRST TRAILER | Robert Downey Jr as Doctor Doom | Marvel Comics"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+      <div className="movie-detail-content-container">
+        <div className="movie-specs">
+          <h2 className="movie-name">{movie.name}</h2>
+          <p className="movie-rating">⭐ {movie.rating}</p>
         </div>
-        <p>{movieList1[id].summary}</p>
-        <MovieLikes />
+
+        <p className="movie-summary">{movie.summary}</p>
       </div>
     </div>
   );
