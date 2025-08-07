@@ -7,8 +7,13 @@ import { Home } from "./Home";
 import "./styles.css";
 import UserList from "./UserList";
 import { AddMovie } from "./AddMovie";
+import { useState } from "react";
+import { INITIAL_MOVIES } from "./INITIAL_MOVIES";
+import { MovieLikes } from "./MovieLikes";
 
 export default function App() {
+  const [movieList, setMovieList] = useState(INITIAL_MOVIES);
+
   return (
     <div className="App">
       <nav className="nav-bar">
@@ -19,19 +24,35 @@ export default function App() {
       <Routes>
         <Route path="Home" element={<Home />} />
         <Route path="UserList" element={<UserList />} />
-        <Route path="AddMovieList" element={<AddMovieList />} />
-        <Route path="movies/:id" element={<MovieDetails />} />
-        <Route path="films" element={< Navigate to="/AddMovieList" replace />} />
+        <Route
+          path="movies/:id"
+          element={
+            <MovieDetails movieList1 ={movieList} setMovieList={setMovieList} />
+          }
+        />
+        {/*<Route path="movies" element={<MovieDetails />} />}   {/*id*/}
+        <Route path="films" element={<Navigate to="/AddMovieList" replace />} />
         <Route path="ColorGame" element={<ColorGame />} />
         <Route path="/" element={<Home />} />
       </Routes>
     </div>
   );
 }
-function MovieDetails(){
-  
-  const {id} = useParams();
-  return(
-    <h1>{id}</h1>
-  )
+function MovieDetails({ movieList1 }) {
+  const { id } = useParams();
+  console.log(movieList1.name);
+  return (
+   
+    <div className="movie-container">
+      <div>
+        <img src={movieList1[id].poster} alt={movieList1[id].name} />
+        <div className="title-container">
+          <h1>{movieList1[id].name}</h1>
+          <h2>{movieList1[id].rating}</h2>
+        </div>
+        <p>{movieList1[id].summary}</p>
+        <MovieLikes />
+      </div>
+    </div>
+  );
 }

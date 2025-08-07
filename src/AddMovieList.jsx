@@ -2,25 +2,10 @@ import { useState } from "react";
 import { AddMovie } from "./AddMovie";
 import { useParams } from "react-router";
 
-export function AddMovieList() {
-  const defaultMovies = [
-    {
-      name: "Vikram",
-      poster:
-        "https://m.media-amazon.com/images/M/MV5BMmJhYTYxMGEtNjQ5NS00MWZiLWEwN2ItYjJmMWE2YTU1YWYxXkEyXkFqcGdeQXVyMTEzNzg0Mjkx._V1_.jpg",
-      rating: 8.4,
-      summary: "Black ops team hunts down masked murderers.",
-    },
-    {
-      name: "PS2",
-      poster:
-        "https://static.moviecrow.com/gallery/20230317/213385-Ponniyin%20Selvan%202%20Karthi%20Trisha.jpg",
-      rating: 8,
-      summary: "Epic Tamil action film directed by Mani Ratnam.",
-    },
-  ];
+export function AddMovieList({movieList,setMovieList}) {
+ 
 
-  const [movieList, setMovieList] = useState(defaultMovies);
+  // const [movieList, setMovieList] = useState(INITIAL_MOVIES);
   const [name, setName] = useState("");
   const [url, setUrl] = useState("");
   const [rating, setRating] = useState("");
@@ -34,13 +19,13 @@ export function AddMovieList() {
       summary: summary,
     };
    
+    // setMovieList([...movieList, newMovie]);
+    setMovieList(movieList.concat(newMovie));
+    
     setName("");
     setUrl("");
     setRating("");
     setSummary("");
-    
-    // setMovieList([...movieList, newMovie]);
-    setMovieList(movieList.concat(newMovie));
   }
   return (
     <div>
