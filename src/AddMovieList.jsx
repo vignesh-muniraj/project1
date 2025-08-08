@@ -1,11 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AddMovie } from "./AddMovie";
 import { useParams } from "react-router";
 
-export function AddMovieList({movieList,setMovieList}) {
+// export function AddMovieList({movieList,setMovieList}) {
+export function AddMovieList() {
  
+  const [movieList, setMovieList] = useState([]);
 
-  // const [movieList, setMovieList] = useState(INITIAL_MOVIES);
+   async function getMovies() {
+    const response = await fetch(
+      "https://68959014039a1a2b288f7c48.mockapi.io/movies"
+    );
+    const data = await response.json();
+    setMovieList(data);
+  }
+  useEffect(() => {
+    getMovies();
+  }, []);
+
   const [name, setName] = useState("");
   const [url, setUrl] = useState("");
   const [rating, setRating] = useState("");
@@ -69,8 +81,8 @@ export function AddMovieList({movieList,setMovieList}) {
       <div className="movie-smart">
         {movieList.map((movie,index) => (
           <AddMovie
-            key={index}
-            id={index}
+            key={movie.id}
+            // id={index}
             movie={movie}
           />
         ))}

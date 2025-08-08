@@ -1,4 +1,4 @@
-import { Route, Routes, Link, Navigate, useParams } from "react-router";
+import { Route, Routes, Link, Navigate, useParams, useNavigate } from "react-router";
 import { ColorGame } from "./ColorGame";
 import Counter from "./Counter";
 import { MovieList } from "./MovieList";
@@ -7,13 +7,13 @@ import { Home } from "./Home";
 import "./styles.css";
 import UserList from "./UserList";
 import { AddMovie } from "./AddMovie";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { INITIAL_MOVIES } from "./INITIAL_MOVIES";
 import { MovieLikes } from "./MovieLikes";
 
 export default function App() {
   const [movieList, setMovieList] = useState(INITIAL_MOVIES);
-
+  
   return (
     <div className="App">
       <nav className="nav-bar">
@@ -26,29 +26,44 @@ export default function App() {
         <Route path="home" element={<Home />} />
         <Route path="userList" element={<UserList />} />
         <Route
-          path="movielist"
+          path="movieList"
           element={
-            <AddMovieList movieList={movieList} setMovieList={setMovieList} />
+            // <AddMovieList movieList={movieList} setMovieList={setMovieList} />
+            <AddMovieList  />
           }
         />
         <Route
           path="movies/:id"
           element={
-            <MovieDetails movieList={movieList} />
+            // <MovieDetails movieList={movieList} />
+            <MovieDetails />
           }
         />
         {/*<Route path="movies" element={<MovieDetails />} />}   {/*id*/}
-        <Route path="films" element={<Navigate to="/AddMovieList" replace />} />
+        <Route path="films" element={<Navigate to="/movieList" replace />} />
         <Route path="colorgame" element={<ColorGame />} />
         <Route path="/" element={<Home />} />
       </Routes>
     </div>
   );
 }
-function MovieDetails({ movieList }) {
+function MovieDetails() {
   const { id } = useParams();
-  console.log(movieList);
-  const movie = movieList[id];
+  // console.log(movieList);
+  // const movie = movieList[id];
+  const [movie, setMovie] = useState({});
+     async function getMovie() {
+      const response = await fetch(
+        "https://68959014039a1a2b288f7c48.mockapi.io/movies/" + id
+      );
+      const data = await response.json();
+      setMovie(data);
+    }
+    useEffect(() => {
+      getMovie();
+    }, []);
+      const navigate = useNavigate();
+
   return (
     <div className="movie-detail-container">
       <iframe
@@ -69,6 +84,7 @@ function MovieDetails({ movieList }) {
 
         <p className="movie-summary">{movie.summary}</p>
       </div>
+      <button onClick={()=> navigate("/movielist")}>Back</button>
     </div>
   );
 }

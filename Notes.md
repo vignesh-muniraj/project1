@@ -31,6 +31,11 @@
 # useEffect()
 - used to handle component life cycle
 
+# when useEffect run()
+- when dependence array[] is empty then runs only 1 time
+- when  "          "      is state or prop changes when it updates. 
+
+
 
 # :repeat(auto-fix,minmax(380px, 1fr))
 

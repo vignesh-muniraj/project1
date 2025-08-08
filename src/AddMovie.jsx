@@ -2,8 +2,8 @@ import { useState } from "react";
 import { MovieLikes } from "./MovieLikes"; // If you have a like component
 import { useNavigate } from "react-router";
 
-export function AddMovie({ movie: { name, poster, rating, summary }, id }) {
-  const [show, setShow] = useState(false);
+export function AddMovie({ movie: { name, poster, rating, summary ,id}}) {
+  const [show, setShow] = useState(true);
 
   const ratingStyle = {
     color: rating >= 8 ? "green" : "crimson",
