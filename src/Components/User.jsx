@@ -6,7 +6,7 @@ export function User({ pic, name }) {
       <img src={pic} alt={`${name} profile is not found`} />
       <p>
         Hello, <span>{name}</span>🙂‍↕️
-        <Counter/>
+        <Counter />
       </p>
     </div>
   );

@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
-import { AddMovie } from "./AddMovie";
-import { useParams } from "react-router";
+import { Movie } from "../Components/Movie";
 
-// export function AddMovieList({movieList,setMovieList}) {
-export function AddMovieList() {
- 
+ function MovieList() {
   const [movieList, setMovieList] = useState([]);
 
-   async function getMovies() {
+  async function getMovies() {
     const response = await fetch(
       "https://68959014039a1a2b288f7c48.mockapi.io/movies"
     );
@@ -30,12 +27,12 @@ export function AddMovieList() {
       poster: url,
       rating: rating,
       summary: summary,
-      trailer:trailer,
+      trailer: trailer,
     };
-   
+
     // setMovieList([...movieList, newMovie]);
     setMovieList(movieList.concat(newMovie));
-    
+
     setName("");
     setUrl("");
     setRating("");
@@ -45,7 +42,6 @@ export function AddMovieList() {
   return (
     <div>
       <div className="add-movie-form">
-      
         <input
           value={name}
           onChange={(event) => setName(event.target.value)}
@@ -75,18 +71,16 @@ export function AddMovieList() {
           type="text"
           placeholder="Enter trailer"
         />
-        <button onClick={addNewMovies}>ADD </button>
+        <button onClick={addNewMovies}>ADD</button>
       </div>
 
       <div className="movie-smart">
-        {movieList.map((movie,index) => (
-          <AddMovie
-            key={movie.id}
-            // id={index}
-            movie={movie}
-          />
+        {movieList.map((movie, index) => (
+          <Movie key={movie.id} movie={movie} />
         ))}
       </div>
     </div>
   );
 }
+export { MovieList };
+
