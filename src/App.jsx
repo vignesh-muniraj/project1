@@ -19,14 +19,14 @@ export default function App() {
       <nav className="nav-bar">
         <Link to="/home">Home</Link>
         <Link to="/userList">UserList</Link>
-        <Link to="/movieslist">MovieList</Link>
+        <Link to="/movieList">MovieList</Link>
         <Link to="/colorgame">ColorGame</Link>
       </nav>
       <Routes>
         <Route path="home" element={<Home />} />
         <Route path="userList" element={<UserList />} />
         <Route
-          path="movieslist"
+          path="movielist"
           element={
             <AddMovieList movieList={movieList} setMovieList={setMovieList} />
           }
@@ -34,7 +34,7 @@ export default function App() {
         <Route
           path="movies/:id"
           element={
-            <MovieDetails movieList={movieList} setMovieList={setMovieList} />
+            <MovieDetails movieList={movieList} />
           }
         />
         {/*<Route path="movies" element={<MovieDetails />} />}   {/*id*/}

@@ -28,6 +28,9 @@
 - git status
 - 
 
+# useEffect()
+- used to handle component life cycle
+
 
 # :repeat(auto-fix,minmax(380px, 1fr))
 
