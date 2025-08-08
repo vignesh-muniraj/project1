@@ -19,7 +19,6 @@ export function AddMovie({ movie: { name, poster, rating, summary ,id}}) {
         </div>
         <button onClick={() => setShow(!show)}>Toggle</button>
         <button onClick={() => navigate("/movies/" + id)}>Trailer</button>
-
         {show && <p>{summary}</p>}
         <MovieLikes />
       </div>

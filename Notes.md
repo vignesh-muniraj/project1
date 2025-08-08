@@ -35,7 +35,8 @@
 - when dependence array[] is empty then runs only 1 time
 - when  "          "      is state or prop changes when it updates. 
 
-
+# Render prop
+- delete button in parent itself
 
 # :repeat(auto-fix,minmax(380px, 1fr))
 

@@ -12,7 +12,7 @@ import { INITIAL_MOVIES } from "./INITIAL_MOVIES";
 import { MovieLikes } from "./MovieLikes";
 
 export default function App() {
-  const [movieList, setMovieList] = useState(INITIAL_MOVIES);
+  // const [movieList, setMovieList] = useState(INITIAL_MOVIES);
   
   return (
     <div className="App">
@@ -49,8 +49,6 @@ export default function App() {
 }
 function MovieDetails() {
   const { id } = useParams();
-  // console.log(movieList);
-  // const movie = movieList[id];
   const [movie, setMovie] = useState({});
      async function getMovie() {
       const response = await fetch(
