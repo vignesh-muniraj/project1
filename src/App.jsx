@@ -10,6 +10,8 @@ import { MovieDetails } from "./pages/MovieDetails";
 import { MovieList } from "./pages/MovieList";
 import UserList from "./pages/UserList";
 import "./styles.css";
+import { AddMovie } from "./pages/AddMovie";
+import { EditMovie } from "./pages/EditMovie";
 
 export default function App() {
   return (
@@ -18,12 +20,15 @@ export default function App() {
         <Link to="/home">Home</Link>
         <Link to="/userList">UserList</Link>
         <Link to="/movieList">MovieList</Link>
+        <Link to="/addMovie">AddMovie</Link>
         <Link to="/colorgame">ColorGame</Link>
       </nav>
       <Routes>
         <Route path="home" element={<Home />} />
         <Route path="userList" element={<UserList />} />
         <Route path="movieList" element={<MovieList />} />
+        <Route path="addMovie" element={<AddMovie/>} />
+        <Route path="/movies/edit/:id" element={<EditMovie />} />
         <Route path="movies/:id" element={<MovieDetails />} />
         <Route path="films" element={<Navigate to="/movieList" replace />} />
         <Route path="colorgame" element={<ColorGame />} />

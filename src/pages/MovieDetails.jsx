@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router";
 function MovieDetails() {
   const { id } = useParams();
   const [movie, setMovie] = useState({});
+  
   async function getMovie() {
     const response = await fetch(
       "https://68959014039a1a2b288f7c48.mockapi.io/movies/" + id
@@ -40,5 +41,4 @@ function MovieDetails() {
     </div>
   );
 }
-
 export { MovieDetails };

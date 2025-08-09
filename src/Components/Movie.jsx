@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { MovieLikes } from "./MovieLikes"; // If you have a like component
+import { MovieLikes } from "./MovieLikes";
 import { useNavigate } from "react-router";
 
-function Movie({ movie: { name, poster, rating, summary, id } }) {
+function Movie({ movie: { name, poster, rating, summary, id }, deleteBtn = <button>delete</button>,editBtn}) {
   const [show, setShow] = useState(true);
 
   const ratingStyle = {
@@ -20,7 +20,13 @@ function Movie({ movie: { name, poster, rating, summary, id } }) {
         <button onClick={() => setShow(!show)}>Toggle</button>
         <button onClick={() => navigate("/movies/" + id)}>Trailer</button>
         {show && <p>{summary}</p>}
-        <MovieLikes />
+        <div className="like-delete">
+        <div><MovieLikes /></div>
+        <div>
+         {editBtn}
+        {deleteBtn}
+        </div>
+       </div>
       </div>
     </div>
   );
