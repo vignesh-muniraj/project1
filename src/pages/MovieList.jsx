@@ -1,6 +1,9 @@
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+import IconButton from "@mui/material/IconButton";
 import { useEffect, useState } from "react";
-import { Movie } from "../Components/Movie";
 import { useNavigate } from "react-router";
+import { Movie } from "../Components/Movie";
 function MovieList() {
   const [movieList, setMovieList] = useState([]);
 
@@ -17,24 +20,23 @@ function MovieList() {
   }, []);
 
   // Delete Movie
-  const deleteBtn =async (id) => {
+  const deleteBtn = async (id) => {
     console.log("Delted " + id);
     const response = await fetch(
-      "https://68959014039a1a2b288f7c48.mockapi.io/movies/"+id,
+      "https://68959014039a1a2b288f7c48.mockapi.io/movies/" + id,
       { method: "DELETE" }
     );
-  const data = await response.json();
-  console.log(data);
+    const data = await response.json();
+    console.log(data);
     getMovies();
   };
-   // Edit Movie
-    const navigate = useNavigate();
+  // Edit Movie
+  const navigate = useNavigate();
 
   const editBtn = (id) => {
     console.log("edited " + id);
-    navigate(`/movies/edit/${id}`); 
+    navigate(`/movies/edit/${id}`);
     // getMovies();
-
   };
 
   return (
@@ -44,9 +46,22 @@ function MovieList() {
           <Movie
             key={movie.id}
             movie={movie}
-            // editBtn={<button >Edit</button>}
-               editBtn={<button onClick={() => editBtn(movie.id)}>Edit</button>} 
-            deleteBtn={<button onClick={()=>deleteBtn(movie.id)}>Delete</button>}
+            editBtn={
+              <IconButton
+                onClick={() => editBtn(movie.id)}
+                sx={{ verticalAlign: "middle", color: "#910f91de" }}
+              >
+                <EditIcon />
+              </IconButton>
+            }
+            deleteBtn={
+              <IconButton
+                onClick={() => deleteBtn(movie.id)}
+                sx={{ verticalAlign: "middle", color: "red" }}
+              >
+                <DeleteIcon />
+              </IconButton>
+            }
           />
         ))}
       </div>

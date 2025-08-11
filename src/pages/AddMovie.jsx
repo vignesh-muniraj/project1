@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+// import TextField from '@mui/material/TextField';
 
 export function AddMovie() {
   const [name, setName] = useState("");
@@ -50,43 +53,52 @@ export function AddMovie() {
 
   return (
     <form onSubmit={addMovie} className="add-movie-form">
-      <input
+      <TextField
         value={name}
         onChange={(event) => setName(event.target.value)}
-        type="text"
-        placeholder="Name"
+        id="outlined-basic"
+        label="Movie Title"
+        variant="outlined"
+        // color="secondary"
       />
-      <input
+      <TextField
         value={poster}
         onChange={(event) => setPoster(event.target.value)}
-        type="text"
-        placeholder="Poster"
+        id="outlined-basic"
+        label="Poster"
+        variant="outlined"
       />
-      <input
+      <TextField
         value={rating}
         onChange={(event) => setRating(event.target.value)}
-        type="text"
-        placeholder="Rating"
+        id="outlined-basic"
+        label="Rating"
+        variant="outlined"
       />
-      <input
+      <TextField
         value={summary}
         onChange={(event) => setSummary(event.target.value)}
-        type="text"
-        placeholder="Summary"
+        id="outlined-basic"
+        label="Summary"
+        variant="outlined"
       />
-      <input
+      <TextField
         value={trailer}
         onChange={(event) => setTrailer(event.target.value)}
-        type="text"
-        placeholder="Trailer"
+        id="outlined-basic"
+        label="Trailer"
+        variant="outlined"
       />
 
       {/* Task 3.2 - Add the color to the list */}
       {/* Existing Colors + New Color */}
       {/* submit -> onSubmit event triggered */}
-      <Button type="submit" >
+
+      <Button type="submit" variant="outlined">
         ➕ Add
       </Button>
     </form>
   );
 }
+
+
