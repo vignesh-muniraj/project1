@@ -33,11 +33,11 @@ function MovieList() {
   // Edit Movie
   const navigate = useNavigate();
 
-  const editBtn = (id) => {
-    console.log("edited " + id);
-    navigate(`/movies/edit/${id}`);
-    // getMovies();
-  };
+  // const editBtn = (id) => {
+  //   console.log("edited " + id);
+  //   navigate(`/movies/edit/${id}`);
+  //   // getMovies();
+  // };
 
   return (
     <div>
@@ -47,18 +47,12 @@ function MovieList() {
             key={movie.id}
             movie={movie}
             editBtn={
-              <IconButton
-                onClick={() => editBtn(movie.id)}
-                sx={{ verticalAlign: "middle", color: "#910f91de" }}
-              >
+              <IconButton onClick={() => navigate(`/movies/edit/${movie.id}`)} color="secondary">
                 <EditIcon />
               </IconButton>
             }
             deleteBtn={
-              <IconButton
-                onClick={() => deleteBtn(movie.id)}
-                sx={{ verticalAlign: "middle", color: "red" }}
-              >
+              <IconButton onClick={() => deleteBtn(movie.id)} color="error">
                 <DeleteIcon />
               </IconButton>
             }

@@ -1,14 +1,11 @@
-import { faCaretUp } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import ExpandLessSharpIcon from "@mui/icons-material/ExpandLessSharp";
+import ExpandMoreSharpIcon from "@mui/icons-material/ExpandMoreSharp";
 import InfoIcon from "@mui/icons-material/Info";
+import { IconButton } from "@mui/material";
 import Rating from "@mui/material/Rating";
-import ToggleButton from "@mui/material/ToggleButton";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { MovieLikes } from "./MovieLikes";
-import ExpandLessSharpIcon from "@mui/icons-material/ExpandLessSharp";
-import ExpandMoreSharpIcon from "@mui/icons-material/ExpandMoreSharp";
-import { IconButton } from "@mui/material";
 
 function Movie({
   movie: { name, poster, rating, summary, id },
@@ -37,20 +34,18 @@ function Movie({
             <IconButton
               color="primary"
               onClick={() => navigate("/movies/" + id)}
-              sx={{
-                verticalAlign: "middle",
-                fontSize: 30,
-                "&:hover": {
-                  color: "#002fffad",
-                },
-              }}
             >
-              <InfoIcon sx={{ fontSize: 30 }} />
+              <InfoIcon />
             </IconButton>
           </div>
         </div>
         <div className="rating">
-          <Rating name="read-only" value={rating/2} readOnly />
+          <Rating
+            name="half-rating-read"
+            defaultValue={rating/2}
+            precision={0.1}
+            readOnly
+          />
         </div>
 
         {show && <p>{summary}</p>}
@@ -69,3 +64,4 @@ function Movie({
   );
 }
 export { Movie };
+
