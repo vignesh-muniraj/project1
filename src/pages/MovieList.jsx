@@ -33,12 +33,6 @@ function MovieList() {
   // Edit Movie
   const navigate = useNavigate();
 
-  // const editBtn = (id) => {
-  //   console.log("edited " + id);
-  //   navigate(`/movies/edit/${id}`);
-  //   // getMovies();
-  // };
-
   return (
     <div>
       <div className="movie-smart">

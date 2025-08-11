@@ -38,6 +38,10 @@
 # Render prop
 - delete button in parent itself
 
+# useMemo
+# useReduce
+# use
+
 # :repeat(auto-fix,minmax(380px, 1fr))
 
 ```js
