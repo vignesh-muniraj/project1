@@ -36,7 +36,7 @@ function MovieList() {
       setIsLoading(false);
       console.log("Oops:", error);
       // setMovies([]);
-      setErrorMsg("Movie not found 😔");
+      setErrorMsg(searchTerm +"Movie not found");
     }
   }
   useEffect(() => {
