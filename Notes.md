@@ -48,6 +48,13 @@
 # Yup JS (form validation)
 # formik (used to track variable) (when)
 
+
+
+##
+- 1.value -useMemo
+- 2.function - useCallback
+- 3.Component- memo
+
 ```js
 import { useState } from "react";
 import { MovieLikes } from "./MovieLikes";

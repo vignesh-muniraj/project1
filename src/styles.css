@@ -178,7 +178,9 @@ background-color: aliceblue;
   margin: 1.25rem auto;
   input{
 height: 30px;
-
+  }
+  p{
+    color: crimson;
   }
 }
 .like-delete{
@@ -186,4 +188,9 @@ height: 30px;
   justify-content: space-between;
   margin-top: 15px;
  
+}
+.loading{
+  display: grid;
+  place-content: center;
+  min-height: 80vh;
 }

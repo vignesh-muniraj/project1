@@ -10,31 +10,33 @@ import CircularProgress from "@mui/material/CircularProgress";
 
 function MovieList() {
   const navigate = useNavigate();
-  const navigate1 = useNavigate();
   const [movieList, setMovieList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [notFound, setNotFound] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-
+  const [errorMsg, setErrorMsg] = useState("");
   // Data fetcing from API
   async function getMovies(searchTerm = "") {
     setIsLoading(true);
     const url = new URL("https://68959014039a1a2b288f7c48.mockapi.io/movies");
 
     if (searchTerm) {
-      const response = url.searchParams.append("search", searchTerm);
+      url.searchParams.append("search", searchTerm);
     }
 
     try {
       const response = await fetch(url, { method: "GET" });
       const data = await response.json();
-
+      console.log("response "+response.status);
+      if (response.status == 404) {
+        throw new Error("Not found"); // manually
+      }
       setMovieList(data);
       setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
-      setNotFound(true);
-      console.log("OOPs", error);
+      console.log("Oops:", error);
+      // setMovies([]);
+      setErrorMsg("Movie not found 😔");
     }
   }
   useEffect(() => {
@@ -43,14 +45,12 @@ function MovieList() {
 
   if (isLoading) {
     return (
-      <div>
-        <CircularProgress />
+      <div className="loading">
+        <CircularProgress  size="3rem"/>
       </div>
     );
   }
-  if (notFound) {
-    return <h1>Not Found!</h1>;
-  }
+  
 
   // Delete Movie
   const deleteBtn = async (id) => {
@@ -83,8 +83,9 @@ function MovieList() {
           }}
           onChange={(event) => setSearchTerm(event.target.value)}
           value={searchTerm}
+          helperText={errorMsg} // if error is passed then => true
+          error={errorMsg}
         />
-        <p>{notFound && "Not found!"}</p>
       </form>
 
       <div className="movie-smart">
