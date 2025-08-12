@@ -15,11 +15,6 @@ const MovieSchema = object({
 });
 
 export function AddMovie() {
-  // const [name, setName] = useState("");
-  // const [poster, setPoster] = useState("");
-  // const [rating, setRating] = useState("");
-  // const [summary, setSummary] = useState("");
-  // const [trailer, setTrailer] = useState("");
   const { handleSubmit, values, handleChange, handleBlur, errors, touched } =
     useFormik({
       initialValues: {
@@ -39,14 +34,6 @@ export function AddMovie() {
 
   const navigate = useNavigate();
   const addMovie = async (newMovie) => {
-    // event.preventDefault(); // no refresh
-    // const newMovie = {
-    //   name: name,
-    //   poster: poster,
-    //   rating: rating,
-    //   summary: summary,
-    //   trailer: trailer,
-    // };
     // POST
     // 1. method - POST
     // 2. Data - Body & JSON
