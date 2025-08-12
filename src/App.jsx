@@ -1,4 +1,4 @@
-import { Link, Navigate, Route, Routes } from "react-router";
+import { Link, Navigate, Route, Routes, useNavigate } from "react-router";
 import { ColorGame } from "./pages/ColorGame";
 import { Home } from "./pages/Home";
 import { MovieDetails } from "./pages/MovieDetails";
@@ -7,21 +7,49 @@ import UserList from "./pages/UserList";
 import "./styles.css";
 import { AddMovie } from "./pages/AddMovie";
 import { EditMovie } from "./pages/EditMovie";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
 
 export default function App() {
+   const navigate = useNavigate();
   return (
-    <div>
-      <nav>
-        <ul>
-          <li><Link to="/home">Home</Link></li>
-          <li><Link to="/userList">Users</Link></li>
-          <li><Link to="/movieList">Movies</Link></li>
-          <li><Link to="/addMovie">AddMovie</Link></li>
-          <li><Link to="/colorgame">ColorGame</Link></li>
-        </ul>
-      </nav>
+    // <div>
+    //   <nav>
+    //     <ul>
+    //       <li><Link to="/home">Home</Link></li>
+    //       <li><Link to="/userList">Users</Link></li>
+    //       <li><Link to="/movieList">Movies</Link></li>
+    //       <li><Link to="/addMovie">AddMovie</Link></li>
+    //       <li><Link to="/colorgame">ColorGame</Link></li>
+    //     </ul>
+    //   </nav>
+    
+  <div className="App">
+      <AppBar position="static">
+        <Toolbar>
+          <Button color="inherit" onClick={() => navigate("/")}>
+            Home
+          </Button>
+          <Button color="inherit" onClick={() => navigate("/userList")}>
+            Users
+          </Button>
+          <Button color="inherit" onClick={() => navigate("/movieList")}>
+            Movies
+          </Button>
+          <Button color="inherit" onClick={() => navigate("/addMovie")}>
+            Add Movie
+          </Button>
+          <Button color="inherit" onClick={() => navigate("/colorgame")}>
+            ColorGame
+          </Button>
+        </Toolbar>
+      </AppBar>
 
-      <div className="page-content">
         <Routes>
           <Route path="home" element={<Home />} />
           <Route path="userList" element={<UserList />} />
@@ -33,7 +61,7 @@ export default function App() {
           <Route path="colorgame" element={<ColorGame />} />
           <Route path="/" element={<Home />} />
         </Routes>
-      </div>
+      
     </div>
   );
 }

@@ -1,11 +1,9 @@
 body {
-  /* background-image: url("https://media.istockphoto.com/id/1055722852/vector/abstract-background.jpg?s=612x612&w=0&k=20&c=EPIe1Kalsb-UQp8QQsEsOhyBjcKu6SkCnkk4DMSgMTw="); */
 background-size: cover;
   background-repeat: no-repeat;
   background-size: cover; 
   background-position: center; 
 }
-
 *{
   box-sizing: border-box;
   margin: 0;
@@ -39,6 +37,7 @@ nav {
         font-size: 16px;
         transition: color 0.2s ease;
 
+        
         &:hover {
           /* color: rgb(63, 63, 171); */
           background-color: rgba(0, 0, 255, 0.333);
@@ -50,21 +49,16 @@ nav {
   }
 }
 
-
-.page-content {
-  padding-top: 60px; /* matches navbar height */
-}
-
-
 .App {
     font-family: sans-serif;
+    margin-bottom: 10px;
 }
 .home-container {
   display: grid;
   place-content: center;
   color: rgb(46, 135, 213);
   background-repeat: no-repeat;
-  background-image: url("https://i.pinimg.com/1200x/c0/89/6a/c0896a8f2e95a5b66a2a6a47ecc245dd.jpg");
+  /* background-image: url("https://i.pinimg.com/1200x/c0/89/6a/c0896a8f2e95a5b66a2a6a47ecc245dd.jpg"); */
   background-size: cover; 
   background-position: center;
 }
@@ -95,9 +89,7 @@ nav {
 }
   a
 .home-container {
-
 background-color: aliceblue; 
-  
 }
 }
 .movie-container{
@@ -118,7 +110,6 @@ background-color: aliceblue;
     }
     .content-container{
       padding: 15px;
-
     .title-container{
         display: flex;
         justify-content: space-between;
@@ -135,7 +126,6 @@ background-color: aliceblue;
   }
     
 }
-
 .container {
   color: black;
   /* display: grid; */
@@ -169,8 +159,6 @@ background-color: aliceblue;
     align-content: start;
     gap: 10px;
     padding: 5px;
-    /* margin-top: 14px; */
-
     button{
       border: none;
       background-color: white;

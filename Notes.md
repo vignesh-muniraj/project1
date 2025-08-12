@@ -44,6 +44,10 @@
 
 # :repeat(auto-fix,minmax(380px, 1fr))
 
+
+# Yup JS (form validation)
+# formik (used to track variable) (when)
+
 ```js
 import { useState } from "react";
 import { MovieLikes } from "./MovieLikes";
