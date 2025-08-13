@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { IconButton } from "@mui/material";
 
 function MovieDetails() {
   const { id } = useParams();
   const [movie, setMovie] = useState({});
-  
+
   async function getMovie() {
     const response = await fetch(
       "https://68959014039a1a2b288f7c48.mockapi.io/movies/" + id
@@ -34,11 +36,15 @@ function MovieDetails() {
           <h2 className="movie-name">{movie.name}</h2>
           <p className="movie-rating">⭐ {movie.rating}</p>
         </div>
-
         <p className="movie-summary">{movie.summary}</p>
       </div>
-      <button onClick={() => navigate("/movielist")}>Back</button>
+      <IconButton
+        onClick={() => navigate("/movielist")}
+         >
+         <ArrowBackIcon/>
+      </IconButton>
     </div>
+   
   );
 }
 export { MovieDetails };

@@ -1,10 +1,8 @@
-import { useState } from "react";
-import { useNavigate } from "react-router";
 import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import { object, number, string, date, ObjectSchema } from "yup";
 import { useFormik } from "formik";
+import { useNavigate } from "react-router";
+import { number, object, string } from "yup";
 
 const MovieSchema = object({
   name: string().required("Please Enter Title"),

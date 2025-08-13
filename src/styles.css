@@ -194,3 +194,18 @@ height: 30px;
   place-content: center;
   min-height: 80vh;
 }
+.movie-detail-container{
+  margin: 10px 10px;
+  box-sizing: border-box;
+  padding: 10px;
+  .movie-specs{
+   display: flex;
+   /* justify-content: ; */
+   gap: 20px;
+   margin-block-start: 5px;
+   align-items: center;
+  }
+   p{
+  margin-block: 5px;
+  }
+}
