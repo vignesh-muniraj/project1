@@ -51,9 +51,16 @@
 
 
 ##
-- 1.value -useMemo
-- 2.function - useCallback
-- 3.Component- memo
+- 1. useMemo - value(state) 
+- 2. useCallback- function 
+- 3.  memo - Component
+
+## memo -> Pure function 
+
+# usecontext
+- Publisher -CreateContext
+- Provider - context.provider
+- Subscriber  - useContext
 
 ```js
 import { useState } from "react";

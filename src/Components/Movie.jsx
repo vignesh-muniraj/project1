@@ -13,7 +13,7 @@ function Movie({
   editBtn,
 }) {
   const [show, setShow] = useState(true);
-
+   console.log("re-rendring: Movie");
   const ratingStyle = {
     color: rating >= 8 ? "green" : "crimson",
   };

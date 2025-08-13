@@ -61,7 +61,7 @@ function MovieList() {
     );
     const data = await response.json();
     console.log(data);
-    getMovies(searchTerm);
+    getMovies(searchTerm);   // case 2: Delete load
   };
 
   // Search Movie
