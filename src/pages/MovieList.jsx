@@ -60,14 +60,6 @@ function MovieList() {
   }, []);
 
 
-  // if (isLoading) {
-  //   return (
-  //     <div className="loading">
-  //       <CircularProgress  size="3rem"/>
-  //     </div>
-  //   );
-  // }
-  
 
   // Delete Movie
   const deleteBtn = async (id) => {
