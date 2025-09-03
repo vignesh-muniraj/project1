@@ -14,6 +14,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Login } from "./pages/Login";
 
 export default function App() {
    const navigate = useNavigate();
@@ -21,11 +22,11 @@ export default function App() {
     // <div>
     //   <nav>
     //     <ul>
-    //       <li><Link to="/home">Home</Link></li>
-    //       <li><Link to="/userList">Users</Link></li>
-    //       <li><Link to="/movieList">Movies</Link></li>
-    //       <li><Link to="/addMovie">AddMovie</Link></li>
-    //       <li><Link to="/colorgame">ColorGame</Link></li>
+          // <li><Link to="/home">Home</Link></li>
+          // <li><Link to="/userList">Users</Link></li>
+          // <li><Link to="/movieList">Movies</Link></li>
+          // <li><Link to="/addMovie">AddMovie</Link></li>
+          // <li><Link to="/colorgame">ColorGame</Link></li>
     //     </ul>
     //   </nav>
     
@@ -47,6 +48,9 @@ export default function App() {
           <Button color="inherit" onClick={() => navigate("/colorgame")}>
             ColorGame
           </Button>
+           <Button color="inherit" onClick={() => navigate("/login")}>
+            Login
+          </Button>
         </Toolbar>
       </AppBar>
 
@@ -59,6 +63,7 @@ export default function App() {
           <Route path="movies/:id" element={<MovieDetails />} />
           <Route path="films" element={<Navigate to="/movieList" replace />} />
           <Route path="colorgame" element={<ColorGame />} />
+          <Route path="login" element={<Login />} />
           <Route path="/" element={<Home />} />
         </Routes>
       

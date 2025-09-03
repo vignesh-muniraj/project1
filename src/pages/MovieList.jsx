@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { Movie } from "../Components/Movie";
 import CircularProgress from "@mui/material/CircularProgress";
+import { API } from "./Global";
 
 function MovieList() {
   const navigate = useNavigate();
@@ -15,9 +16,10 @@ function MovieList() {
   const [isLoading, setIsLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState("");
   // Data fetcing from API
+  
   async function getMovies(searchTerm = "") {
     setIsLoading(true);
-    const url = new URL("https://68959014039a1a2b288f7c48.mockapi.io/movies");
+    const url = new URL(`${API}/movies`);
 
     if (searchTerm) {
       url.searchParams.append("search", searchTerm);
@@ -56,7 +58,8 @@ function MovieList() {
   const deleteBtn = async (id) => {
     console.log("Delted " + id);
     const response = await fetch(
-      "https://68959014039a1a2b288f7c48.mockapi.io/movies/" + id,
+      `${API}/movies/${id}`,
+      // "https://68959014039a1a2b288f7c48.mockapi.io/movies/" + id,
       { method: "DELETE" }
     );
     const data = await response.json();
