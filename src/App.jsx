@@ -48,7 +48,7 @@ export default function App() {
           <Button color="inherit" onClick={() => navigate("/colorgame")}>
             ColorGame
           </Button>
-           <Button color="inherit" onClick={() => navigate("/loginUser")}>
+           <Button color="inherit" onClick={() => navigate("/login")}>
             Login
           </Button>
         </Toolbar>
