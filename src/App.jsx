@@ -14,7 +14,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Login } from "./pages/Login";
+import { LoginUser } from "./pages/LoginUser";
 
 export default function App() {
    const navigate = useNavigate();
@@ -48,7 +48,7 @@ export default function App() {
           <Button color="inherit" onClick={() => navigate("/colorgame")}>
             ColorGame
           </Button>
-           <Button color="inherit" onClick={() => navigate("/login")}>
+           <Button color="inherit" onClick={() => navigate("/loginUser")}>
             Login
           </Button>
         </Toolbar>
@@ -63,7 +63,7 @@ export default function App() {
           <Route path="movies/:id" element={<MovieDetails />} />
           <Route path="films" element={<Navigate to="/movieList" replace />} />
           <Route path="colorgame" element={<ColorGame />} />
-          <Route path="login" element={<Login />} />
+          <Route path="login" element={<LoginUser />} />
           <Route path="/" element={<Home />} />
         </Routes>
       

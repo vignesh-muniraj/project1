@@ -11,47 +11,62 @@ import { API } from "./Global";
 
 function MovieList() {
   const navigate = useNavigate();
-  const [movieList, setMovieList] = useState([]);
+  const [movieList, setMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState("");
+  const token = localStorage.getItem("token");
   // Data fetcing from API
-  
   async function getMovies(searchTerm = "") {
-    setIsLoading(true);
+    // setIsLoading(true);
     const url = new URL(`${API}/movies`);
 
     if (searchTerm) {
       url.searchParams.append("search", searchTerm);
     }
+  try {
+      const response = await fetch(url, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
-    try {
-      const response = await fetch(url, { method: "GET" });
+      if ([400, 401, 422].includes(response.status)) {
+        navigate("/login");
+      }
+     
       const data = await response.json();
-      console.log("response "+response.status);
+      console.log("****data***", data);
       if (response.status == 404) {
         throw new Error("Not found"); // manually
       }
-      setMovieList(data);
-      setIsLoading(false);
-    } catch (error) {
-      setIsLoading(false);
-      console.log("Oops:", error);
+
+      setMovies(data);
+    } catch (err) {
+      console.log("Oops:", err);
       // setMovies([]);
-      setErrorMsg(`"${searchTerm}" Movie not found ⛔`);
+      setErrorMsg("Movie not found 😔");
     }
   }
+
+  // Component Mounted - once
   useEffect(() => {
-    getMovies();
+    if (!token) {
+      navigate("/login");
+    } else {
+      getMovies(); // Case 1: Initial load - ✅
+    }
   }, []);
 
-  if (isLoading) {
-    return (
-      <div className="loading">
-        <CircularProgress  size="3rem"/>
-      </div>
-    );
-  }
+
+  // if (isLoading) {
+  //   return (
+  //     <div className="loading">
+  //       <CircularProgress  size="3rem"/>
+  //     </div>
+  //   );
+  // }
   
 
   // Delete Movie

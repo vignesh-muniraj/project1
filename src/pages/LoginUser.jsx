@@ -1,9 +1,8 @@
-
 import { useFormik } from "formik";
+import { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { object, string } from "yup";
 import { API } from "./Global";
-import { useEffect } from "react";
 
 const loginSchema = object({
   username: string().required("A cool name is in need 😉"),
@@ -12,7 +11,7 @@ const loginSchema = object({
     .min(8, "Please provide a longer password 😁"),
 });
 
-export function LoginForm() {
+export function LoginUser() {
   const { handleSubmit, values, handleChange, handleBlur, touched, errors } =
     useFormik({
       initialValues: { username: "", password: "" },
@@ -47,11 +46,11 @@ export function LoginForm() {
     console.log(data);
     localStorage.setItem("token", data?.token);
 
-    navigate("/movies");
+    navigate("/movieList");
   };
 
   return (
-    <form onSubmit={handleSubmit} className="login-form">
+    <form onSubmit={handleSubmit} className="add-movie-form">
       <input
         type="text"
         placeholder="username"
@@ -89,7 +88,7 @@ export function BasicForm1() {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit} className="add-movie-form">
+    <form onSubmit={formik.handleSubmit} className="login-form">
       <input
         type="text"
         placeholder="username"
